@@ -17,7 +17,7 @@ module.exports = async function (req, res, next) {
                 description
             })
 
-            res.status(202).send(note)
+            res.status(200).send(note)
         }
     } catch (error) {
         next(error)

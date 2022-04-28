@@ -15,7 +15,7 @@ module.exports = async function (req, res, next) {
                 }
             })
 
-            res.status(202).send(noteId)
+            res.status(200).send(noteId)
 
         } else {
             res.status(404).send('Id is required')

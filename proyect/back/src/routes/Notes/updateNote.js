@@ -24,7 +24,7 @@ module.exports = async function (req, res, next) {
                 }
             })
 
-            res.status(202).send('updateNote Successfully')
+            res.status(200).send('updateNote Successfully')
         }
     
 

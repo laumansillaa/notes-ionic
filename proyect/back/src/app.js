@@ -5,7 +5,7 @@ app.name = 'SERVER';
 app.set('port', process.env.PORT || 3001);
 
 require('./middlewares')(app);
-
+require('./routes')(app);
 
 app.use(cors());
 app.use((err, req, res, next) => {

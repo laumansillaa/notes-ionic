@@ -9,7 +9,7 @@ module.exports = async function (req, res, next) {
 
         if (allNotes) {
 
-            res.status(202).send(allNotes)
+            res.status(200).send(allNotes)
 
         } else {
             res.status(404).send('No notes found')

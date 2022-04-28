@@ -20,7 +20,7 @@ module.exports = async function (req, res, next) {
                     }
                 })
         
-                res.status(202).send('deleteNote Successfully')         
+                res.status(200).send('deleteNote Successfully')         
         }
 
     } catch (error) {
