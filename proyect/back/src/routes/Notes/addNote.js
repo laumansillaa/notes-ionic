@@ -9,15 +9,25 @@ module.exports = async function (req, res, next) {
         
         if(!title && !description) {
             
-            res.status(404).send('title and description are required');
-        } else {
-
-            const note = await Notes.create({
-                title,
+            return res.status(404).send('title and description are required');
+        } 
+        
+        if(!title) {
+            
+            const newNote = await Notes.create({
+                title: "New note",
                 description
             })
 
-            res.status(200).send(note)
+            return res.status(200).send(newNote)
+        } else {
+                
+                const note = await Notes.create({
+                    title,
+                    description
+                })
+    
+                return res.status(200).send(note)
         }
     } catch (error) {
         next(error)
