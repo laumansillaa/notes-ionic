@@ -1,7 +1,14 @@
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet, setupIonicReact } from '@ionic/react';
+import { IonApp, IonMenu, IonRouterOutlet, setupIonicReact, IonHeader, IonToolbar, IonTitle, IonContent, IonList, 
+        IonItem, IonIcon, IonLabel, IonMenuToggle  } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
+import {bookOutline, addCircleOutline} from 'ionicons/icons';
+
+
 import Home from './pages/Home';
+import Notes from './pages/allNotes/allNotes';
+
+
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -27,12 +34,35 @@ setupIonicReact();
 const App: React.FC = () => (
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route exact path="/home">
-          <Home />
+      <IonMenu side="start" contentId="menuApp">
+        <IonHeader>
+          <IonToolbar color= "primary">
+            <IonTitle>NotesApp</IonTitle>
+          </IonToolbar>
+        </IonHeader>
+        <IonContent>
+          <IonList>
+            <IonMenuToggle>
+              <IonItem routerLink='/all-notes' routerDirection= 'none' lines= 'none' >
+                <IonIcon icon= {bookOutline} color='medium' slot='start' />
+                <IonLabel>All Notes</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+            <IonMenuToggle>
+              <IonItem routerLink="/add-activities" routerDirection="none" lines= "none" >
+                <IonIcon icon={addCircleOutline} color="medium" slot="start" />
+                <IonLabel>Add Activities</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+          </IonList>
+        </IonContent>
+      </IonMenu>
+      <IonRouterOutlet id= "menuApp">
+        <Route exact path="/all-notes">
+          <Notes />
         </Route>
         <Route exact path="/">
-          <Redirect to="/home" />
+          <Redirect to="/all-notes" />
         </Route>
       </IonRouterOutlet>
     </IonReactRouter>
