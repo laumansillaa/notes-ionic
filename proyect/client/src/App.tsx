@@ -8,6 +8,7 @@ import {bookOutline, addCircleOutline} from 'ionicons/icons';
 import Home from './pages/Home';
 import Notes from './pages/allNotes/allNotes';
 import PostNote from './pages/addNote/addNote';
+import DetailNote from './pages/detailNote/detailNote';
 
 
 
@@ -61,6 +62,7 @@ const App: React.FC = () => (
       <IonRouterOutlet id= "menuApp">
         <Route exact path="/all-notes" component={Notes}/>
         <Route exact path="/post-note" component={PostNote}/>
+        <Route path="/detail-note/:id" component={DetailNote} />
         <Redirect to="/all-notes"/>
       </IonRouterOutlet>
     </IonReactRouter>

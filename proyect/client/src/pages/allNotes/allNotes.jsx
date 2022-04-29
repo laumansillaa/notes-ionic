@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {Redirect, Link} from 'react-router-dom';
 import {getNotes} from '../../actions';
 import classes from './allNotes.module.css';
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButtons, 
-        IonMenuButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, IonModal } from '@ionic/react';
+        IonMenuButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, IonModal, IonNav} from '@ionic/react';
 
 
 export default function Notes () {
@@ -11,10 +12,6 @@ export default function Notes () {
     const dispatch = useDispatch()
     const notesState = useSelector(state => state.notes)
     
-    // const errorstate = useSelector(state => state.error)
-    // console.log(errorstate)
-
-
     useEffect(() => {
         dispatch(getNotes())
 
@@ -56,9 +53,14 @@ export default function Notes () {
                                             <IonCardContent>
                                                 <p>{e.description}</p>
                                                 <IonItem  lines='none'>
-                                                    <IonButton fill= 'clear' className={classes.FullWidth}>
-                                                        OPEN THE NOTE
-                                                    </IonButton>
+                                                        
+                                                        
+                                                        <IonButton fill= 'clear' className={classes.FullWidth} href={'/detail-note/' +e.id}>
+                                                            OPEN THE NOTE
+
+                                                        </IonButton>
+                                                        
+                                                    
                                                 </IonItem>
 
                                             </IonCardContent>

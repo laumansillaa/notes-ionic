@@ -28,7 +28,7 @@ export function postNotes(payload) {
     })
 }
 
-
+//SAGA SUCCESS AND ERROR POST NOTES
 export function postNotesSuccess () {
     return {
         type: 'POST_NOTES_SUCCESS'
@@ -42,5 +42,31 @@ export function postNotesError (error) {
         payload: error
     })
 }
+
+//---------------------------------------------------
+
+export function detailNotes (payload) {
+    return ({
+        type: 'DETAIL_NOTES',
+        payload
+    })
+}
+
+//SAGA SUCCESS AND ERROR DETAIL NOTES
+export function detailNotesSuccess () {
+    return {
+        type: 'DETAIL_NOTES_SUCCESS'
+    }
+}
+
+
+export function detailNotesError (error) {
+    return ({
+        type: 'DETAIL_NOTES_ERROR',
+        payload: error
+    })
+}
+
+//---------------------------------------------------
 
 

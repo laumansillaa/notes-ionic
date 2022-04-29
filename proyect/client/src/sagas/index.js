@@ -24,7 +24,6 @@ function* sagaApiPostNotes (payload) {
     return yield axios.post('http://localhost:3001/notes/addNotes', payload)
 }
 
-
 function* sagaAddNotes ({payload}) {
 
     const response = yield call(sagaApiPostNotes, payload);
@@ -36,10 +35,28 @@ function* sagaAddNotes ({payload}) {
 }
 
 
+//NOTES DETAIL 
+function* sagaApiGetNotesDetail (payload) {
+    return yield axios.get(`http://localhost:3001/notes/detailNote/${payload}`)
+}
+
+function* sagaDetailNotes ({payload}) {
+    
+    const response = yield call(sagaApiGetNotesDetail, payload);
+    if (response.status === 200) {
+        yield put({type: 'DETAIL_NOTES_SUCCESS', payload: response.data});
+    } else {
+
+        yield put({type: 'DETAIL_NOTES_ERROR', payload: response});
+    }
+}
+
+
 
 // ------ ROOT SAGA ------ 
 
 export default function* rootSaga () {
     yield takeEvery('GET_NOTES', sagaAllNotes);
     yield takeEvery ('POST_NOTES', sagaAddNotes);
+    yield takeEvery('DETAIL_NOTES', sagaDetailNotes);
 }
