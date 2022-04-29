@@ -1,5 +1,6 @@
 const initialState = {
     notes: [],
+    post: [],
     error: null
 }
 
@@ -15,6 +16,17 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 error: action.payload
             }
+        case 'POST_NOTES_SUCCESS':
+            return {
+                ...state,
+                
+            }
+        case 'POST_NOTES_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            }    
+            
         default:
             return state;
     }

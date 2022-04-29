@@ -7,6 +7,7 @@ import {bookOutline, addCircleOutline} from 'ionicons/icons';
 
 import Home from './pages/Home';
 import Notes from './pages/allNotes/allNotes';
+import PostNote from './pages/addNote/addNote';
 
 
 
@@ -49,21 +50,18 @@ const App: React.FC = () => (
               </IonItem>
             </IonMenuToggle>
             <IonMenuToggle>
-              <IonItem routerLink="/add-activities" routerDirection="none" lines= "none" >
+              <IonItem routerLink="/post-note" routerDirection="none" lines= "none" >
                 <IonIcon icon={addCircleOutline} color="medium" slot="start" />
-                <IonLabel>Add Activities</IonLabel>
+                <IonLabel>Add note</IonLabel>
               </IonItem>
             </IonMenuToggle>
           </IonList>
         </IonContent>
       </IonMenu>
       <IonRouterOutlet id= "menuApp">
-        <Route exact path="/all-notes">
-          <Notes />
-        </Route>
-        <Route exact path="/">
-          <Redirect to="/all-notes" />
-        </Route>
+        <Route exact path="/all-notes" component={Notes}/>
+        <Route exact path="/post-note" component={PostNote}/>
+        <Redirect to="/all-notes"/>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>
