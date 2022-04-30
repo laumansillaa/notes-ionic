@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, 
     IonGrid, IonRow, IonCol, IonButton, IonMenuButton, IonCardSubtitle, IonSegment, 
@@ -13,9 +13,18 @@ export default function PostNote () {
 
     const dispatch = useDispatch()
     const history = useHistory()
+    //const {id} = useParams()
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    //const [editMote, setEditMode] = useState(false)
+
+
+    // useEffect(() => {
+    //     if(id) {
+    //         setEditMode(true)
+    //     }
+    // })
 
 
     const data = {
@@ -26,8 +35,8 @@ export default function PostNote () {
     function handlePost () {
 
         dispatch(postNotes(data))
-        setTitle('')
-        setDescription('')
+        
+
         dispatch(getNotes())
 
         history.push('/all-notes')
@@ -66,7 +75,6 @@ export default function PostNote () {
                                 <IonItem >
                                     <IonLabel position="floating">Description to note</IonLabel>
                                     <IonTextarea type='text' autoGrow='true' name='description' onIonChange={(e) => setDescription(e.target.value)}></IonTextarea>
-                                    
                                 </IonItem>
                             </IonCol>
                         </IonRow>
@@ -77,13 +85,10 @@ export default function PostNote () {
                         </IonRow>
                     </IonGrid>
                 </IonContent>
-
             </IonPage>
-
         </React.Fragment>
 
 
 
     ) 
-
 }

@@ -11,6 +11,7 @@ function* sagaAllNotes () {
     const response = yield call(sagaApiGetNotes);
 
     if (response.status === 200) {
+
         yield put({type: 'GET_NOTES_SUCCESS', payload: response.data});
     } else {
 
@@ -54,7 +55,8 @@ function* sagaDetailNotes ({payload}) {
 //UPDATES NOTES 
 //payload , id (id de la nota) al payload
 function* sagaApiUpdateNotes (payload) {
-    return yield axios.put(`http://localhost:3001/notes/updateNotes/${payload.id}`, payload)
+
+    return yield axios.put(`http://localhost:3001/notes/updateNote/${payload.id}`, payload)
 }
 
 function* sagaUpdateNotes ({payload}) {

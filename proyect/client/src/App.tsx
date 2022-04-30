@@ -9,6 +9,7 @@ import Home from './pages/Home';
 import Notes from './pages/allNotes/allNotes';
 import PostNote from './pages/addNote/addNote';
 import DetailNote from './pages/detailNote/detailNote';
+import updateNote from './pages/updateNote/updateNote';
 
 
 
@@ -63,6 +64,7 @@ const App: React.FC = () => (
         <Route exact path="/all-notes" component={Notes}/>
         <Route exact path="/post-note" component={PostNote}/>
         <Route path="/detail-note/:id" component={DetailNote} />
+        <Route path="/update-note/:id/:title/:description" component={updateNote} />
         <Redirect to="/all-notes"/>
       </IonRouterOutlet>
     </IonReactRouter>

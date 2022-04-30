@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {detailNotes, deleteNotes} from '../../actions';
 import { IonContent, IonGrid, IonTitle, IonPage, IonHeader, IonToolbar, 
         IonCol, IonCard, IonTextarea, IonItem, IonButton, IonRow, IonCardContent, IonIcon, IonButtons } from '@ionic/react';
-import {createOutline, CreateOutLine} from 'ionicons/icons';
+import {createOutline, trashOutline, arrowBackOutline} from 'ionicons/icons';
 import classes from './detailNote.module.css';
 //import updateNote from '../updateNote';
 
@@ -30,18 +30,21 @@ export default function DetailNote ({title, description}) {
         <IonPage>
             <IonHeader>
                 <IonToolbar className={classes.toolBar} >
-                    <IonButton onClick={handleDeleteNote} >
-                        Delete
-                    </IonButton>
-
+                    <IonButton href='/all-activities' 
+                        size='medium' 
+                        fill='outline' 
+                        className={classes.ancho}
+                    ><IonIcon icon={arrowBackOutline} /></IonButton>
                     {
                         detailNote?
                         <IonTitle >{detailNote.title}</IonTitle> :
                         <IonTitle>Title not found</IonTitle>
                     }
-                    <IonButton size='15' slot='end' 
-                    fill='outline' 
-                    color='white' >
+                    <IonButton size='15' 
+                        slot='end' 
+                        fill='outline' 
+                        color='white'
+                        href={'/update-note/' + id + '/' + detailNote.title + '/' + detailNote.description } >
                         <IonIcon icon={createOutline} color='medium' />
                     </IonButton>
                 </IonToolbar>
@@ -64,7 +67,7 @@ export default function DetailNote ({title, description}) {
             </IonContent>
             <IonRow>
                 <IonCol>                
-                    <IonButton href='/all-activities' size='medium' fill='outline' className={classes.ancho}>Go home!</IonButton>
+                    <IonButton onClick={handleDeleteNote}> Delete </IonButton>
                     <IonButton fill='outline' size='medium' className={classes.ancho} > Save! </IonButton>   
                 </IonCol>
             </IonRow>
