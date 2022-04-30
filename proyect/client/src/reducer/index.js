@@ -37,6 +37,15 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 error: action.payload
             }
+        case 'DELETE_NOTES_SUCCESS':
+            return {
+                ...state
+            }
+        case 'DELETE_NOTES_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
     }

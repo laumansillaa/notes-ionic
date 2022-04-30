@@ -1,0 +1,15 @@
+.toolBar {
+    justify-content: space-around;
+}
+
+.ancho {
+    align-items: center;
+    border-radius: 0px;
+    margin-top: 0px;
+    height: 120%;
+    width: 45%;
+}
+
+.fullAltura {
+    height: max-content;
+}

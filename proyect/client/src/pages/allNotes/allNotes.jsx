@@ -4,8 +4,8 @@ import {Redirect, Link} from 'react-router-dom';
 import {getNotes} from '../../actions';
 import classes from './allNotes.module.css';
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButtons, 
-        IonMenuButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, IonModal, IonNav} from '@ionic/react';
-
+        IonMenuButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, IonModal, IonIcon} from '@ionic/react';
+import {closeCircle} from 'ionicons/icons';
 
 export default function Notes () {
     
@@ -35,7 +35,7 @@ export default function Notes () {
                             <IonMenuButton />
                         </IonButtons>
                         <IonTitle>
-                            All Activities
+                            All Activities sdfgsfdgsdf
                         </IonTitle>
                     </IonToolbar>
                 </IonHeader>
@@ -45,24 +45,17 @@ export default function Notes () {
                             notesState?.map(e => (
                                 <IonRow key={e.id}>
                                     <IonCol className = 'ion-context' >
-                                        <IonCard>                                            
+                                        <IonCard>                                       
                                             <IonCardHeader>
-                                                <IonCardTitle>{e.title} </IonCardTitle>
-
+                                                 <IonCardTitle>{e.title} </IonCardTitle>
                                             </IonCardHeader>
                                             <IonCardContent>
                                                 <p>{e.description}</p>
-                                                <IonItem  lines='none'>
-                                                        
-                                                        
-                                                        <IonButton fill= 'clear' className={classes.FullWidth} href={'/detail-note/' +e.id}>
-                                                            OPEN THE NOTE
-
-                                                        </IonButton>
-                                                        
-                                                    
+                                                <IonItem  lines='none'>                   
+                                                    <IonButton fill= 'clear' className={classes.FullWidth} href={'/detail-note/' +e.id} >
+                                                        OPEN THE NOTE
+                                                    </IonButton>                             
                                                 </IonItem>
-
                                             </IonCardContent>
                                         </IonCard>
                                     </IonCol>

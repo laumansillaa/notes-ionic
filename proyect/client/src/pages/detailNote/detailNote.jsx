@@ -1,53 +1,73 @@
 import React, {useEffect} from 'react';
-import {useParams, Redirect} from 'react-router-dom';
+import {useParams, Redirect, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {detailNotes} from '../../actions';
-import { IonContent, IonGrid, IonTitle, IonPage, IonHeader, IonToolbar, IonCol, IonCard, IonTextarea, IonItem, IonButton } from '@ionic/react';
+import {detailNotes, deleteNotes} from '../../actions';
+import { IonContent, IonGrid, IonTitle, IonPage, IonHeader, IonToolbar, 
+        IonCol, IonCard, IonTextarea, IonItem, IonButton, IonRow, IonCardContent, IonIcon, IonButtons } from '@ionic/react';
+import {createOutline, CreateOutLine} from 'ionicons/icons';
+import classes from './detailNote.module.css';
+//import updateNote from '../updateNote';
 
 
-
-export default function DetailNote () {
+export default function DetailNote ({title, description}) {
 
     const {id} = useParams()
-    console.log('SOY ID DETAIL', id)
     const dispatch = useDispatch()
+    const history = useHistory()
     const detailNote = useSelector((state) => state.detail)
-    console.log('SOY DETAIL', detailNote)
-
+    
     useEffect(() => {
         dispatch(detailNotes(id))
     }, [dispatch])
 
+    const handleDeleteNote = () => {
+        dispatch(deleteNotes(id))
+        history.push('/all-notes')
+    }
+
+
     return (
         <IonPage>
             <IonHeader>
-                <IonToolbar>
+                <IonToolbar className={classes.toolBar} >
+                    <IonButton onClick={handleDeleteNote} >
+                        Delete
+                    </IonButton>
+
                     {
                         detailNote?
-                        <IonTitle>{detailNote.title}</IonTitle> :
-
+                        <IonTitle >{detailNote.title}</IonTitle> :
                         <IonTitle>Title not found</IonTitle>
-                    } 
-
+                    }
+                    <IonButton size='15' slot='end' 
+                    fill='outline' 
+                    color='white' >
+                        <IonIcon icon={createOutline} color='medium' />
+                    </IonButton>
                 </IonToolbar>
             </IonHeader>
-            <IonContent>
-                <IonGrid>
-                    <IonCol>
-                        <IonCard>
-                            {
-                                detailNote?
-                                <IonTextarea>{detailNote.description}</IonTextarea> :
-                                <IonTextarea>...and its description? </IonTextarea>
-                            }
+            <IonContent >
+                <IonGrid >
+                    <IonCard >
+                        <IonCol>
+                            <IonCardContent  >
+                                {
+                                    detailNote?
+                                    <IonTextarea className= 'ion-max-height' >{detailNote.description}</IonTextarea> :
+                                    <IonTextarea>...and its description? </IonTextarea>
+                                }
 
-                        </IonCard>
-                    </IonCol>
+                            </IonCardContent>
+                        </IonCol>
+                    </IonCard>
                 </IonGrid>
             </IonContent>
-            <IonItem>                
-                <IonButton href='/all-activities'>Go home!</IonButton>   
-            </IonItem>
+            <IonRow>
+                <IonCol>                
+                    <IonButton href='/all-activities' size='medium' fill='outline' className={classes.ancho}>Go home!</IonButton>
+                    <IonButton fill='outline' size='medium' className={classes.ancho} > Save! </IonButton>   
+                </IonCol>
+            </IonRow>
         </IonPage>
     )
 

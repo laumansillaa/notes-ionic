@@ -69,4 +69,49 @@ export function detailNotesError (error) {
 
 //---------------------------------------------------
 
+export function updateNotes (payload) {
+    return ({
+        type: 'UPDATE_NOTES',
+        payload
+    })
+}
 
+//SAGA SUCCESS AND ERROR UPDATE NOTES
+export function updateNotesSuccess () {
+    return {
+        type: 'UPDATE_NOTES_SUCCESS'
+    }
+}
+
+export function updateNotesError (error) {
+    return ({
+        type: 'UPDATE_NOTES_ERROR',
+        payload: error
+    })
+}
+
+
+//---------------------------------------------------
+
+
+export function deleteNotes (payload) {
+    return({
+        type: 'DELETE_NOTES',
+        payload
+    })
+}
+
+//SAGA SUCCESS AND ERROR DELETE NOTES
+
+export function deleteNotesSuccess () {
+    return {
+        type: 'UPDATE_NOTES_SUCCESS'
+    }
+}
+
+export function deleteNotesError (error) {
+    return ({
+        type: 'DELETE_NOTES_ERROR',
+        payload: error
+    })
+}
