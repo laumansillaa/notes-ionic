@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Redirect, Link} from 'react-router-dom';
+//import {Redirect, Link} from 'react-router-dom';
 import {getNotes} from '../../actions';
 import classes from './allNotes.module.css';
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButtons, 
-        IonMenuButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, IonModal, IonIcon} from '@ionic/react';
-import {closeCircle} from 'ionicons/icons';
+        IonMenuButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, IonModal, IonIcon, withIonLifeCycle} from '@ionic/react';
+// import {closeCircle} from 'ionicons/icons';
 
 export default function Notes () {
     
@@ -18,16 +18,9 @@ export default function Notes () {
     }, [dispatch])
 
 
-
     return (
         
         <React.Fragment>
-            {/* <IonModal isOpen={!!activityToComplete} swipeToClose={true} >
-                <CompleteModalActivity activity={activityToComplete as Activity} dismissModal={closeModal}/>
-
-            </IonModal> */}
-
-
             <IonPage>
                 <IonHeader>
                     <IonToolbar>
@@ -35,7 +28,7 @@ export default function Notes () {
                             <IonMenuButton />
                         </IonButtons>
                         <IonTitle>
-                            All Activities sdfgsfdgsdf
+                            IonicNotes
                         </IonTitle>
                     </IonToolbar>
                 </IonHeader>
@@ -52,7 +45,7 @@ export default function Notes () {
                                             <IonCardContent>
                                                 <p>{e.description}</p>
                                                 <IonItem  lines='none'>                   
-                                                    <IonButton fill= 'clear' className={classes.FullWidth} href={'/detail-note/' +e.id} >
+                                                    <IonButton fill= 'clear' className={classes.FullWidth} href={'/detail-note/' + e.id} >
                                                         OPEN THE NOTE
                                                     </IonButton>                             
                                                 </IonItem>

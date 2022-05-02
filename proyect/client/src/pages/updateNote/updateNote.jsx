@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, 
-    IonGrid, IonRow, IonCol, IonButton, IonMenuButton, IonCardSubtitle, 
-    IonSegment, IonSegmentButton, IonLabel, IonItem, IonInput, IonDatetime, IonButtons, IonToast, IonTextarea
+    IonGrid, IonRow, IonCol, IonButton, IonMenuButton, 
+    IonLabel, IonItem, IonInput, IonButtons, IonToast, IonTextarea
     } from '@ionic/react'
 import {useSelector, useDispatch} from 'react-redux';
 import {useHistory, useParams} from 'react-router-dom';
@@ -13,31 +13,20 @@ export default function UpdateNote () {
     
     const {id} = useParams()
     const {title} = useParams()
-    const info = useParams()
-
     const {description} = useParams()
+    
     const dispatch = useDispatch()
     const history = useHistory()
 
-
-    const detailNote = useSelector((state) => state.detail)
-
-    
-
-    const [titleNote, setTitleNote] = useState('' + title)
+    const [titleNote, setTitleNote] = useState(title)
     const [descriptionNote, setDescriptionNote] = useState(description)
 
-    useEffect(() => {
-        setTitleNote(title)
-        setDescriptionNote(description)
-    }, [])
 
     const data = {
         id: id,
         title: titleNote,
         description: descriptionNote
     }
-
 
 
     function handleUpdate () {
@@ -85,9 +74,7 @@ export default function UpdateNote () {
                     </IonRow>
                 </IonGrid>
             </IonContent>
-
         </IonPage>
-
     </React.Fragment>
 
     )

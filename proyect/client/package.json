@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "@babel/preset-env": "^7.17.10",
     "@capacitor/app": "1.1.1",
     "@capacitor/core": "3.5.0",
     "@capacitor/haptics": "1.1.4",
@@ -46,7 +47,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --transformIgnorePatterns 'node_modules/(?!(@ionic/react|@ionic/react-router|@ionic/core|@stencil/core|ionicons)/)'",
+    "test": "cross-env NODE_ENV=test jasmine",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -68,7 +69,13 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "3.5.0"
+    "@babel/core": "^7.17.10",
+    "@babel/register": "^7.17.7",
+    "@capacitor/cli": "3.5.0",
+    "cross-env": "^7.0.3",
+    "jasmine": "^4.1.0",
+    "jsdom": "^19.0.0"
   },
+
   "description": "An Ionic project"
 }

@@ -13,32 +13,26 @@ export default function PostNote () {
 
     const dispatch = useDispatch()
     const history = useHistory()
-    //const {id} = useParams()
+    
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    //const [editMote, setEditMode] = useState(false)
 
-
-    // useEffect(() => {
-    //     if(id) {
-    //         setEditMode(true)
-    //     }
-    // })
-
+    window.localStorage.setItem('title', title)
+    window.localStorage.setItem('description', description)
 
     const data = {
         title: title,
         description: description
     }
 
+
     function handlePost () {
-
-        dispatch(postNotes(data))
         
-
+        dispatch(postNotes(data))
+        setTitle('')
+        setDescription('')
         dispatch(getNotes())
-
         history.push('/all-notes')
 
     }

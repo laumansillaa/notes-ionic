@@ -3,13 +3,13 @@ import {useParams, Redirect, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {detailNotes, deleteNotes} from '../../actions';
 import { IonContent, IonGrid, IonTitle, IonPage, IonHeader, IonToolbar, 
-        IonCol, IonCard, IonTextarea, IonItem, IonButton, IonRow, IonCardContent, IonIcon, IonButtons } from '@ionic/react';
-import {createOutline, trashOutline, arrowBackOutline} from 'ionicons/icons';
+        IonCol, IonCard, IonTextarea, IonItem, IonButton, IonRow, IonCardContent, IonIcon, IonButtons, IonFooter } from '@ionic/react';
+import {createOutline, arrowBackOutline} from 'ionicons/icons';
 import classes from './detailNote.module.css';
 //import updateNote from '../updateNote';
 
 
-export default function DetailNote ({title, description}) {
+export default function DetailNote () {
 
     const {id} = useParams()
     const dispatch = useDispatch()
@@ -31,9 +31,10 @@ export default function DetailNote ({title, description}) {
             <IonHeader>
                 <IonToolbar className={classes.toolBar} >
                     <IonButton href='/all-activities' 
-                        size='medium' 
+                        slot='start' 
                         fill='outline' 
-                        className={classes.ancho}
+                        color='white'
+
                     ><IonIcon icon={arrowBackOutline} /></IonButton>
                     {
                         detailNote?
@@ -65,12 +66,12 @@ export default function DetailNote ({title, description}) {
                     </IonCard>
                 </IonGrid>
             </IonContent>
-            <IonRow>
-                <IonCol>                
+            <IonFooter>
+                <IonToolbar>                
                     <IonButton onClick={handleDeleteNote}> Delete </IonButton>
-                    <IonButton fill='outline' size='medium' className={classes.ancho} > Save! </IonButton>   
-                </IonCol>
-            </IonRow>
+                    <IonButton fill='outline' size='medium' > Save! </IonButton>   
+                </IonToolbar>
+            </IonFooter>
         </IonPage>
     )
 
