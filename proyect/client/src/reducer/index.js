@@ -2,6 +2,7 @@ const initialState = {
     notes: [],
     post: [],
     detail: [],
+    update: [],
     error: null
 }
 
@@ -33,6 +34,16 @@ function rootReducer (state = initialState, action) {
                 detail: action.payload
             }
         case 'DETAIL_NOTES_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            }
+        case 'UPDATE_NOTES_SUCCESS':
+            return {
+                ...state,
+                update: action.payload
+            }
+        case 'UPDATE_NOTES_ERROR':
             return {
                 ...state,
                 error: action.payload
