@@ -53,7 +53,7 @@ function* sagaDetailNotes ({payload}) {
 }
 
 //UPDATES NOTES 
-//payload , id (id de la nota) al payload
+
 function* sagaApiUpdateNotes (payload) {
 
     return yield axios.put(`http://localhost:3001/notes/updateNote/${payload.id}`, payload)
@@ -76,7 +76,6 @@ function* sagaApiDeleteNotes (payload) {
     return yield axios.delete(`http://localhost:3001/notes/deleteNote/${payload}`)
 }
 
-//CONTINUAR CON EL DELETEEEE
 function* sagaDeleteNotes ({payload}) {
     const response = yield call(sagaApiDeleteNotes, payload);
     if (response.status = 200) {
@@ -87,9 +86,7 @@ function* sagaDeleteNotes ({payload}) {
 }
 
 
-
 // ------ ROOT SAGA ------ 
-//BUSCAR QUE HACE FORK
 
 export default function* rootSaga () {
     yield takeEvery('GET_NOTES', sagaAllNotes);
