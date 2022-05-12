@@ -1,6 +1,42 @@
 import axios from 'axios';
 import {call, put, takeEvery} from 'redux-saga/effects';
 
+// POST ALUMN
+
+function sagaApiPostAlumn (payload) {
+    console.log('ENTRE API POST')
+    return axios.post('http://localhost:3001/alumns/addAlumn', payload)
+}
+
+function* sagaAddAlumn ({payload}) {
+    const response = yield call(sagaApiPostAlumn, payload);
+    console.log('soy response', response)
+    if (response.status === 200) {
+        yield put({type: 'POST_ALUMN_SUCCESS', payload: response.data});
+    } else {
+        yield put({type: 'POST_ALUMN_ERROR', payload: response});
+    }
+}
+
+
+// GET ALUMN
+
+function sagaApiGetAlumns () {
+    return axios.get('http://localhost:3001/alumns/getAllAlumns')
+}
+
+
+function* sagaAllAlumns () {
+    const response = yield call (sagaApiGetAlumns)
+
+    if (response.status === 200) {
+        yield put ({type: 'GET_ALUMNS_SUCCESS', payload: response.data})
+    } else {
+        yield put ({type: 'GET_ALUMNS_ERROR', payload: response})
+    }
+}
+
+
 
 //GET NOTES
 function* sagaApiGetNotes () {
@@ -94,4 +130,6 @@ export default function* rootSaga () {
     yield takeEvery('DETAIL_NOTES', sagaDetailNotes);
     yield takeEvery('UPDATE_NOTES', sagaUpdateNotes);
     yield takeEvery('DELETE_NOTES', sagaDeleteNotes);
+    yield takeEvery('POST_ALUMN', sagaAddAlumn);
+    yield takeEvery('GET_ALL_ALUMNS', sagaAllAlumns);
 }

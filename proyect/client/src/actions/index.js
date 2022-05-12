@@ -1,3 +1,57 @@
+// ------- POST ALUMNS --------
+export const postAlumn = (alumn) => {
+    return ({
+        type: 'POST_ALUMN',
+        payload: alumn
+    })
+}
+
+//SAGA SUCCESS AND ERROR POST ALUMN
+
+export const postAlumnSuccess = (alumn) => {
+    return ({
+        type: 'POST_ALUMN_SUCCESS',
+        payload: alumn
+    })
+}
+
+export const postAlumnError = (error) => {
+    return ({
+        type: 'POST_ALUMN_ERROR',
+        payload: error
+    })
+}
+
+
+// --------------------------
+
+// -------- GET ALL ALUMNS ----------
+
+export const getAllAlumns = () => {
+    return ({
+        type: 'GET_ALL_ALUMNS'
+    })
+}
+
+export const getAllAlumnsSuccess = (alumns) => {
+    console.log('ENTRE ACTIONS GET ALL ALUMNS')
+    return ({
+        type: 'GET_ALL_ALUMNS_SUCCESS',
+        payload: alumns
+    })
+}
+
+export const getAllAlumnsError = (error) => {
+    return ({
+        type: 'GET_ALL_ALUMNS_ERROR',
+        payload: error
+    })
+}
+
+//--------------------------
+
+
+
 export function getNotes() {
     return ({
         type: 'GET_NOTES',

@@ -10,6 +10,8 @@ import Notes from './pages/allNotes/allNotes';
 import PostNote from './pages/addNote/addNote';
 import DetailNote from './pages/detailNote/detailNote';
 import updateNote from './pages/updateNote/updateNote';
+import PostAlumn from './pages/PostAlumns/PostAlumns';
+import AllAlumns from './pages/AllAlumns/AllAlumns';
 
 
 
@@ -46,26 +48,26 @@ const App: React.FC = () => (
         <IonContent>
           <IonList>
             <IonMenuToggle>
-              <IonItem routerLink='/all-notes' routerDirection= 'none' lines= 'none' >
+              <IonItem routerLink='/all-alumns' routerDirection= 'none' lines= 'none' >
                 <IonIcon icon= {bookOutline} color='medium' slot='start' />
-                <IonLabel>All Notes</IonLabel>
+                <IonLabel>All alumns</IonLabel>
               </IonItem>
             </IonMenuToggle>
             <IonMenuToggle>
-              <IonItem routerLink="/post-note" routerDirection="none" lines= "none" >
+              <IonItem routerLink="/post-alumns" routerDirection="none" lines= "none" >
                 <IonIcon icon={addCircleOutline} color="medium" slot="start" />
-                <IonLabel>Add note</IonLabel>
+                <IonLabel>Add alumn</IonLabel>
               </IonItem>
             </IonMenuToggle>
           </IonList>
         </IonContent>
       </IonMenu>
       <IonRouterOutlet id= "menuApp">
-        <Route exact path="/all-notes" component={Notes}/>
-        <Route exact path="/post-note" component={PostNote}/>
+        <Route exact path="/all-alumns" component={AllAlumns}/>
+        <Route exact path="/post-alumns" component={PostAlumn}/>
         <Route path="/detail-note/:id" component={DetailNote} />
         <Route path="/update-note/:id/:title/:description" component={updateNote} />
-        <Redirect to="/all-notes"/>
+        <Redirect to="/all-alumns"/>
       </IonRouterOutlet>
     </IonReactRouter>
   </IonApp>

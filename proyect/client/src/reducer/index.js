@@ -1,4 +1,5 @@
 const initialState = {
+    alumns: [],
     notes: [],
     post: [],
     detail: [],
@@ -8,6 +9,26 @@ const initialState = {
 
 function rootReducer (state = initialState, action) {
     switch (action.type) {
+        case 'POST_ALUMN_SUCCESS':
+            return {
+                ...state,
+                alumns: action.payload
+            }
+        case 'POST_ALUMN_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            }
+        case 'GET_ALUMNS_SUCCESS':
+            return {
+                ...state,
+                alumns: action.payload
+            }
+        case 'GET_ALUMNS_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            }      
         case 'GET_NOTES_SUCCESS':
             return {
                 ...state,

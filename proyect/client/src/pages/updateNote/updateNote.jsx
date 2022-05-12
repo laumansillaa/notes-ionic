@@ -11,15 +11,21 @@ import { updateNotes, detailNotes } from '../../actions';
 
 export default function UpdateNote () {
     
-    const {id} = useParams()
-    const {title} = useParams()
-    const {description} = useParams()
+    const {id, title, description} = useParams()
+    // const {title} = useParams()
+    // const {description} = useParams()
     
     const dispatch = useDispatch()
     const history = useHistory()
+    const detail = useSelector(state => state.detail)
 
-    const [titleNote, setTitleNote] = useState(title)
-    const [descriptionNote, setDescriptionNote] = useState(description)
+    const [titleNote, setTitleNote] = useState(detail.title)
+    const [descriptionNote, setDescriptionNote] = useState(detail.description)
+
+
+    useEffect(() => {
+        dispatch(detailNotes(id))
+    })
 
 
     const data = {

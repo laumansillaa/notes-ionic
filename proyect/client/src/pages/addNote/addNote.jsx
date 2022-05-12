@@ -43,13 +43,13 @@ export default function PostNote () {
 
     return (
         <React.Fragment>
-            <IonPage>
+            <IonPage className='addPost'>
                 <IonHeader>
                     <IonToolbar>
                         <IonButtons slot="start">
                             <IonMenuButton />
                         </IonButtons>
-                        <IonTitle>
+                        <IonTitle className='title'>
                             Add new note
                         </IonTitle>
                     </IonToolbar>
