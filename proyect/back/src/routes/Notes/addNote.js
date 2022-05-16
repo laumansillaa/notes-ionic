@@ -1,34 +1,52 @@
-const {Notes} = require('../../db').models;
+const {Notes, Alumns} = require('../../db').models;
 
 module.exports = async function (req, res, next) {
     console.log('----- ADD NOTE -----');
 
-    const {title, description} = req.body;
+    //const {id} = req.params;
+    const {title, description, lastname} = req.body;
 
     try {
-        
-        if(!title && !description) {
-            
-            return res.status(404).send('title and description are required');
-        } 
-        
-        if(!title) {
-            
-            const newNote = await Notes.create({
-                title: "New note",
-                description
-            })
 
-            return res.status(200).send(newNote)
+        if (!title && !description) {
+            res.send(404).send('No se han recibido datos para guardar')
         } else {
-                
-                const note = await Notes.create({
+
+            if  (title && description) {
+    
+                let note = await Notes.create({
                     title,
-                    description
+                    description,
+                })
+        
+                const match = await Alumns.findAll({
+                    where: {
+                        lastname: lastname
+                    }
+                })
+        
+                note.addAlumns(match)
+        
+                res.status(200).send(note)
+            } else if (!title && description) {
+    
+                let note = await Notes.create({
+                    title: "New note"
                 })
     
-                return res.status(200).send(note)
+                const match = await Alumns.findAll({
+                    where: {
+                        lastname: lastname  
+                    }
+                })
+    
+                note.addAlumns(match)
+    
+                res.status(200).send(note)
+            } 
         }
+
+
     } catch (error) {
         next(error)
     }

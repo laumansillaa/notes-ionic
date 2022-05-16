@@ -15,11 +15,7 @@ module.exports = async (req, res, next) => {
             res.status(404).send('Id is requerid')
         } else {
 
-            const alumn = await Alumns.findOne({
-                where: {
-                    id: id
-                }
-            }, {
+            const alumn = await Alumns.findByPk(id, {
                 include: Notes
                 }
             )
