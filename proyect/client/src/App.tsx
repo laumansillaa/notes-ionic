@@ -12,6 +12,7 @@ import DetailNote from './pages/detailNote/detailNote';
 import updateNote from './pages/updateNote/updateNote';
 import PostAlumn from './pages/PostAlumns/PostAlumns';
 import AllAlumns from './pages/AllAlumns/AllAlumns';
+import DetailAlumns from './pages/DetailAlumns/DetailAlumns';
 
 
 
@@ -65,6 +66,8 @@ const App: React.FC = () => (
       <IonRouterOutlet id= "menuApp">
         <Route exact path="/all-alumns" component={AllAlumns}/>
         <Route exact path="/post-alumns" component={PostAlumn}/>
+        <Route exact path="/detail-alumns/:id" component={DetailAlumns}/>
+        <Route exact path="/post-note" component={PostNote} />
         <Route path="/detail-note/:id" component={DetailNote} />
         <Route path="/update-note/:id/:title/:description" component={updateNote} />
         <Redirect to="/all-alumns"/>

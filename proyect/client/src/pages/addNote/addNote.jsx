@@ -18,12 +18,16 @@ export default function PostNote () {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
 
+    const lastname = window.localStorage.getItem("lastname")
+    const id = window.localStorage.getItem('id')
+
     window.localStorage.setItem('title', title)
     window.localStorage.setItem('description', description)
 
     const data = {
         title: title,
-        description: description
+        description: description,
+        lastname: lastname
     }
 
 
@@ -33,7 +37,7 @@ export default function PostNote () {
         setTitle('')
         setDescription('')
         dispatch(getNotes())
-        history.push('/all-notes')
+        history.push('/detail-alumns/' + id)
 
     }
 

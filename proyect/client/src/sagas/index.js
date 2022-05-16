@@ -18,6 +18,24 @@ function* sagaAddAlumn ({payload}) {
     }
 }
 
+// GET DETAIL ALUMN 
+
+function sagaApiGetDetailAlumn (payload) {
+    return axios.get(`http://localhost:3001/alumns/detailAlumn/${payload}`)
+}
+
+function* sagaGetDetailAlumn ({payload}) {
+    const response = yield call(sagaApiGetDetailAlumn, payload);
+
+    if (response.status === 200) {
+        yield put({type: 'GET_DETAIL_ALUMNS_SUCCESS', payload: response.data});
+    } else {
+        yield put({type: 'GET_DETAIL_ALUMNS_ERROR', payload: response});
+    }
+}
+
+
+
 
 // GET ALUMN
 
@@ -132,4 +150,5 @@ export default function* rootSaga () {
     yield takeEvery('DELETE_NOTES', sagaDeleteNotes);
     yield takeEvery('POST_ALUMN', sagaAddAlumn);
     yield takeEvery('GET_ALL_ALUMNS', sagaAllAlumns);
+    yield takeEvery('GET_DETAIL_ALUMNS', sagaGetDetailAlumn);
 }

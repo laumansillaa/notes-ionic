@@ -50,8 +50,34 @@ export const getAllAlumnsError = (error) => {
 
 //--------------------------
 
+// GET DETAIL ALUMNS -------
+
+export function getDetailAlumns (payload) {
+    return ({
+        type: 'GET_DETAIL_ALUMNS',
+        payload
+    })
+}
 
 
+export function getDetailAlumnsSuccess (alumn) {
+    return ({
+        type: 'GET_DETAIL_ALUMNS_SUCCESS',
+        payload: alumn
+    })
+}
+
+export function getDetailAlumnsError (error) {
+    return ({
+        type: 'GET_DETAIL_ALUMNS_ERROR',
+        payload: error
+    })
+}
+
+
+// --------------------------
+
+// GET NOTES ----------------
 export function getNotes() {
     return ({
         type: 'GET_NOTES',

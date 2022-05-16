@@ -59,10 +59,7 @@ export default function Notes () {
                 </IonContent>
             </IonPage>
         </React.Fragment>
-
     )
-
-
 
 
 }

@@ -46,7 +46,7 @@ export default function AllAlumns () {
                                             <IonCardContent>
                                                 <p>{e.observations? e.observations : ''}</p>
                                                 <IonItem>
-                                                    <IonButton fill= 'clear'  href={'/detail-alumn/' + e.id} className='buttonViewData' >VIEW DATA</IonButton>
+                                                    <IonButton fill= 'clear'  href={'/detail-alumns/' + e.id} className='buttonViewData' >VIEW DATA</IonButton>
                                                 </IonItem>
                                             </IonCardContent>
                                         </IonCard>
@@ -56,7 +56,7 @@ export default function AllAlumns () {
                         } 
                     </IonGrid>
                 </IonContent>
-                
+                                
                     <IonFab vertical='bottom' horizontal='end' slot='fixed'>
                         <IonFabButton href={'/post-alumns'} >
                             <IonIcon icon={addCircleOutline}  />

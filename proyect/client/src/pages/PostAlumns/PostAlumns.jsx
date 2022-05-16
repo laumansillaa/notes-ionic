@@ -26,13 +26,13 @@ export default function PostAlumn () {
     }
 
     const handlePost = () => {
-        console.log('SOY DATA', data)
+        //console.log('SOY DATA', data)
         dispatch(postAlumn(data))
+        dispatch(getAllAlumns())
         setName('')
         setLastname('')
         setPhone('')
         setObservations('')
-        dispatch(getAllAlumns())
         history.push('/all-alumns')
     }
 
