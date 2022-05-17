@@ -1,6 +1,6 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonMenu, IonRouterOutlet, setupIonicReact, IonHeader, IonToolbar, IonTitle, IonContent, IonList, 
-        IonItem, IonIcon, IonLabel, IonMenuToggle  } from '@ionic/react';
+        IonItem, IonIcon, IonLabel, IonMenuToggle, IonAccordion, IonAccordionGroup  } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import {bookOutline, addCircleOutline} from 'ionicons/icons';
 
@@ -60,6 +60,26 @@ const App: React.FC = () => (
                 <IonLabel>Add alumn</IonLabel>
               </IonItem>
             </IonMenuToggle>
+            <IonMenuToggle>
+              <IonAccordionGroup>
+                    <IonAccordion>
+                        <IonItem><IonLabel>Alumnos</IonLabel></IonItem>
+                        <IonList>
+                          <IonItem>
+                            <IonLabel>Alumno1</IonLabel>
+                          </IonItem>
+                          <IonItem>
+                            <IonLabel>Alumno2</IonLabel>
+                          </IonItem>
+                          <IonItem>
+                            <IonLabel>Alumno2</IonLabel>
+                          </IonItem>
+                        </IonList>
+                    </IonAccordion>
+
+                </IonAccordionGroup>
+
+            </IonMenuToggle>
           </IonList>
         </IonContent>
       </IonMenu>
@@ -69,7 +89,7 @@ const App: React.FC = () => (
         <Route exact path="/detail-alumns/:id" component={DetailAlumns}/>
         <Route exact path="/post-note" component={PostNote} />
         <Route path="/detail-note/:id" component={DetailNote} />
-        <Route path="/update-note/:id/:title/:description" component={updateNote} />
+        {/* <Route path="/update-note/:id/:title/:description" component={updateNote} /> */}
         <Redirect to="/all-alumns"/>
       </IonRouterOutlet>
     </IonReactRouter>

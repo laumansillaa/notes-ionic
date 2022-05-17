@@ -1,11 +1,12 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
-    IonGrid, IonRow, IonCol, IonButton, IonMenuButton, IonCardSubtitle, IonSegment,
-    IonSegmentButton, IonLabel, IonItem, IonInput, IonDatetime, IonButtons, IonToast, IonNote, IonTextarea} from '@ionic/react';
+        IonGrid, IonRow, IonCol, IonButton, IonMenuButton, IonLabel, 
+        IonItem, IonInput, IonButtons, IonTextarea} from '@ionic/react';
 
 import {useHistory} from 'react-router-dom';
 import {postAlumn, getAllAlumns} from '../../actions';
+// import AllAlumns from '../../components/AllAlumns';
 
 
 export default function PostAlumn () {
@@ -28,12 +29,12 @@ export default function PostAlumn () {
     const handlePost = () => {
         //console.log('SOY DATA', data)
         dispatch(postAlumn(data))
-        dispatch(getAllAlumns())
-        setName('')
-        setLastname('')
-        setPhone('')
-        setObservations('')
-        history.push('/all-alumns')
+        //dispatch(getAllAlumns())
+        // setName('')
+        // setLastname('')
+        // setPhone('')
+        // setObservations('')
+        //history.push('/all-alumns')
     }
 
 
@@ -91,7 +92,7 @@ export default function PostAlumn () {
                         </IonRow>
                         <IonRow>
                             <IonCol className='ion-text-center ion-margin-top'>
-                                <IonButton expand='block' fill='outline' onClick={handlePost}>Post</IonButton>
+                                <IonButton expand='block' fill='outline' onClick={handlePost} href={'/all-alumns'}>Post</IonButton>
                             </IonCol>
                         </IonRow>
                     </IonGrid>

@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {getAllAlumns} from '../../actions';
-import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonGrid, IonRow, IonCol, IonButtons, IonMenuButton, IonCard, IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, IonModal, IonIcon, withIonLifeCycle, IonLabel, IonFab, IonFabButton} from '@ionic/react';
+import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, 
+        IonGrid, IonRow, IonCol, IonButtons, IonMenuButton, IonCard, 
+        IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, 
+        IonIcon, IonFab, IonFabButton, IonLoading} from '@ionic/react';
 import { addCircleOutline } from 'ionicons/icons';
 import './AllAlumns.css';
 
@@ -10,14 +13,18 @@ export default function AllAlumns () {
 
     const dispatch = useDispatch()
     const alumnsState = useSelector(state => state.alumns)
+    //console.log("2Soy state", alumnsState)
 
+    const [showLoading, setShowLoading] = useState(false)
+
+    setTimeout(() => {
+        setShowLoading(false)
+    }, 2000)
 
     useEffect(() => {
+        setShowLoading(true)
         dispatch(getAllAlumns())
-
-    }, [dispatch])
-
-
+    }, [])
 
     return (
 
@@ -46,7 +53,9 @@ export default function AllAlumns () {
                                             <IonCardContent>
                                                 <p>{e.observations? e.observations : ''}</p>
                                                 <IonItem>
-                                                    <IonButton fill= 'clear'  href={'/detail-alumns/' + e.id} className='buttonViewData' >VIEW DATA</IonButton>
+                                                    <IonButton fill= 'clear'  
+                                                    href={'/detail-alumns/' + e.id} 
+                                                    className='buttonViewData' >VIEW DATA</IonButton>
                                                 </IonItem>
                                             </IonCardContent>
                                         </IonCard>
@@ -54,6 +63,12 @@ export default function AllAlumns () {
                                 </IonRow> 
                             )) 
                         } 
+                        <IonLoading 
+                            isOpen={showLoading}
+                            onDidDismiss={() => setShowLoading(false)}
+                            message={'Loading...'}
+                            duration={5000}
+                         />
                     </IonGrid>
                 </IonContent>
                                 

@@ -10,7 +10,7 @@ function sagaApiPostAlumn (payload) {
 
 function* sagaAddAlumn ({payload}) {
     const response = yield call(sagaApiPostAlumn, payload);
-    console.log('soy response', response)
+    //console.log('soy response', response)
     if (response.status === 200) {
         yield put({type: 'POST_ALUMN_SUCCESS', payload: response.data});
     } else {

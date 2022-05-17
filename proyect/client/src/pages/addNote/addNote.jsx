@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, 
-    IonGrid, IonRow, IonCol, IonButton, IonMenuButton, IonCardSubtitle, IonSegment, 
-    IonSegmentButton, IonLabel, IonItem, IonInput, IonDatetime, IonButtons, IonToast, IonNote, IonTextarea} from '@ionic/react'
+    IonGrid, IonRow, IonCol, IonButton, IonMenuButton, IonLabel, IonItem, IonInput, IonButtons, IonTextarea} from '@ionic/react'
 
 import {useHistory} from 'react-router-dom';
 import {postNotes, getNotes} from '../../actions';
@@ -36,13 +35,10 @@ export default function PostNote () {
         dispatch(postNotes(data))
         setTitle('')
         setDescription('')
-        dispatch(getNotes())
-        history.push('/detail-alumns/' + id)
+        //dispatch(getNotes())
+        // history.push('/detail-alumns/' + id)
 
     }
-
-
-
 
 
     return (
@@ -78,15 +74,12 @@ export default function PostNote () {
                         </IonRow>
                         <IonRow>
                             <IonCol className='ion-text-center ion-margin-top'>
-                                <IonButton expand='block' fill='outline' onClick={handlePost}>Add note</IonButton>
+                                <IonButton expand='block' fill='outline' onClick={handlePost} href={'/detail-alumns/' + id}>Add note</IonButton>
                             </IonCol>
                         </IonRow>
                     </IonGrid>
                 </IonContent>
             </IonPage>
         </React.Fragment>
-
-
-
     ) 
 }

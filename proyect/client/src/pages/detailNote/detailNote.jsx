@@ -1,10 +1,11 @@
 import React, {useEffect} from 'react';
-import {useParams, Redirect, useHistory} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {detailNotes, deleteNotes} from '../../actions';
 import { IonContent, IonGrid, IonTitle, IonPage, IonHeader, IonToolbar, 
-        IonCol, IonCard, IonTextarea, IonItem, IonButton, IonRow, IonCardContent, IonIcon, IonButtons, IonFooter } from '@ionic/react';
-import {createOutline, arrowBackOutline} from 'ionicons/icons';
+        IonCol, IonCard, IonTextarea, IonButton, IonCardContent, IonIcon, IonFab, IonFabButton,
+        IonFabList } from '@ionic/react';
+import {createOutline, arrowBackOutline, addCircleOutline, trashOutline, menuOutline} from 'ionicons/icons';
 import classes from './detailNote.module.css';
 //import updateNote from '../updateNote';
 
@@ -66,12 +67,28 @@ export default function DetailNote () {
                     </IonCard>
                 </IonGrid>
             </IonContent>
-            <IonFooter>
+            {/* <IonFooter>
                 <IonToolbar>                
                     <IonButton onClick={handleDeleteNote}> Delete </IonButton>
                     <IonButton fill='outline' size='medium' > Save! </IonButton>   
                 </IonToolbar>
-            </IonFooter>
+            </IonFooter> */}
+            <IonFab vertical='bottom' horizontal='end' slot='fixed'>
+                <IonFabButton>
+                    <IonIcon icon={menuOutline} />
+                </IonFabButton>
+                <IonFabList side='top'>
+                    <IonFabButton href={'/post-note'} >
+                        <IonIcon icon={createOutline}  />
+                    </IonFabButton>
+                    <IonFabButton >
+                        <IonIcon icon= {trashOutline}/>
+                    </IonFabButton>
+                    <IonFabButton>
+                        <IonIcon icon={addCircleOutline}/>
+                    </IonFabButton>
+                </IonFabList>
+            </IonFab>
         </IonPage>
     )
 

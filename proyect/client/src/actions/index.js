@@ -34,7 +34,7 @@ export const getAllAlumns = () => {
 }
 
 export const getAllAlumnsSuccess = (alumns) => {
-    console.log('ENTRE ACTIONS GET ALL ALUMNS')
+    //console.log('ENTRE ACTIONS GET ALL ALUMNS')
     return ({
         type: 'GET_ALL_ALUMNS_SUCCESS',
         payload: alumns

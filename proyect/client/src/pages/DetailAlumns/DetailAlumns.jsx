@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
-import {useParams, Redirect, useHistory} from 'react-router-dom';
+import {useParams, useHistory} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import {getDetailAlumns} from '../../actions';
 import {IonContent, IonGrid, IonTitle, IonPage, IonHeader, IonToolbar,
-        IonCol, IonCard, IonTextarea, IonItem, IonButton, IonRow, IonCardContent, IonIcon, IonButtons, IonFooter, IonFab, IonFabButton, IonCardHeader, IonCardTitle} from '@ionic/react';
+        IonCol, IonCard, IonItem, IonButton, IonRow, IonCardContent, 
+        IonIcon, IonFab, IonFabButton, IonCardHeader, IonCardTitle} from '@ionic/react';
 import { arrowBackOutline, addCircleOutline, logoWindows } from 'ionicons/icons';
 import './DetailAlumns.css'
 
@@ -17,7 +18,7 @@ export default function DetailAlumns () {
 
     window.localStorage.setItem("lastname", detailAlumns.lastname)
     window.localStorage.setItem('id', detailAlumns.id)
-    console.log('SOY DETAIL ALUMNS',detailAlumns.Notes)
+    //console.log('SOY DETAIL ALUMNS',detailAlumns.Notes)
     useEffect(() => {
         dispatch(getDetailAlumns(id))
     }, [dispatch])
@@ -39,22 +40,6 @@ export default function DetailAlumns () {
                         }
                 </IonToolbar>
             </IonHeader>
-            {/* <IonContent>
-                <IonGrid>
-                    <IonCard>
-                        <IonCol>
-                            <IonCardContent>
-                                {
-                                    detailAlumns?
-                                    <IonTextarea className='ion-max-height' >{detailAlumns.observations}</IonTextarea> :
-
-                                    <IonTextarea>...and its observations?</IonTextarea>
-                                }
-                            </IonCardContent>
-                        </IonCol>
-                    </IonCard>
-                </IonGrid>
-            </IonContent> */}
             <IonContent>
                 <IonGrid>
 
@@ -70,7 +55,8 @@ export default function DetailAlumns () {
                                             <IonCardContent>
                                                 <IonItem>
                                                     <IonButton fill='clear'
-                                                    className='detailViewNote'>
+                                                    className='detailViewNote'
+                                                    href={'/detail-note/' + note.id}>
                                                         VIEW NOTE
                                                     </IonButton>
                                                 </IonItem>
@@ -83,8 +69,6 @@ export default function DetailAlumns () {
                         })
                     
                     }
-
-
                 </IonGrid>
             </IonContent>
             <IonFab vertical='bottom' horizontal='end' slot='fixed'>
