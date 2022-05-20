@@ -89,7 +89,7 @@ const App: React.FC = () => (
         <Route exact path="/detail-alumns/:id" component={DetailAlumns}/>
         <Route exact path="/post-note" component={PostNote} />
         <Route path="/detail-note/:id" component={DetailNote} />
-        {/* <Route path="/update-note/:id/:title/:description" component={updateNote} /> */}
+        <Route path="/update-note/:id" component={updateNote} />
         <Redirect to="/all-alumns"/>
       </IonRouterOutlet>
     </IonReactRouter>

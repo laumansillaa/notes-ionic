@@ -5,7 +5,7 @@ import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent,
         IonGrid, IonRow, IonCol, IonButtons, IonMenuButton, IonCard, 
         IonCardHeader, IonCardTitle, IonCardContent, IonItem, IonButton, 
         IonIcon, IonFab, IonFabButton, IonLoading} from '@ionic/react';
-import { addCircleOutline } from 'ionicons/icons';
+import { addCircleOutline, barbellOutline } from 'ionicons/icons';
 import './AllAlumns.css';
 
 
@@ -37,6 +37,7 @@ export default function AllAlumns () {
                         </IonButtons>
                         <IonTitle>
                             Gym-Nacho
+                            <IonIcon icon={barbellOutline}/>
                         </IonTitle>
                     </IonToolbar>
                 </IonHeader>
@@ -67,7 +68,7 @@ export default function AllAlumns () {
                             isOpen={showLoading}
                             onDidDismiss={() => setShowLoading(false)}
                             message={'Loading...'}
-                            duration={5000}
+                            duration={2000}
                          />
                     </IonGrid>
                 </IonContent>

@@ -2,16 +2,15 @@ import React, {useEffect, useState} from 'react';
 import {useDispatch} from 'react-redux';
 import {IonPage, IonHeader, IonToolbar, IonTitle, IonContent, 
     IonGrid, IonRow, IonCol, IonButton, IonMenuButton, IonLabel, IonItem, IonInput, IonButtons, IonTextarea} from '@ionic/react'
-
 import {useHistory} from 'react-router-dom';
 import {postNotes, getNotes} from '../../actions';
-import classes from './addNote.module.css';
+// import classes from './addNote.module.css';
 
 
 export default function PostNote () {
 
     const dispatch = useDispatch()
-    const history = useHistory()
+    // const history = useHistory()
     
 
     const [title, setTitle] = useState('')
@@ -31,13 +30,9 @@ export default function PostNote () {
 
 
     function handlePost () {
-        
         dispatch(postNotes(data))
         setTitle('')
         setDescription('')
-        //dispatch(getNotes())
-        // history.push('/detail-alumns/' + id)
-
     }
 
 
@@ -60,7 +55,10 @@ export default function PostNote () {
                             <IonCol>
                                 <IonItem>
                                     <IonLabel position="floating">Title to note</IonLabel>
-                                    <IonInput type='text' name='title' onIonChange={(e) => setTitle(e.target.value)} ></IonInput>
+                                    <IonInput 
+                                        type='text' 
+                                        name='title' 
+                                        onIonChange={(e) => setTitle(e.target.value)} ></IonInput>
                                 </IonItem>
                             </IonCol>
                         </IonRow>
@@ -68,13 +66,21 @@ export default function PostNote () {
                             <IonCol>
                                 <IonItem >
                                     <IonLabel position="floating">Description to note</IonLabel>
-                                    <IonTextarea type='text' autoGrow='true' name='description' onIonChange={(e) => setDescription(e.target.value)}></IonTextarea>
+                                    <IonTextarea 
+                                        type='text' 
+                                        autoGrow='true' 
+                                        name='description' 
+                                        onIonChange={(e) => setDescription(e.target.value)}></IonTextarea>
                                 </IonItem>
                             </IonCol>
                         </IonRow>
                         <IonRow>
                             <IonCol className='ion-text-center ion-margin-top'>
-                                <IonButton expand='block' fill='outline' onClick={handlePost} href={'/detail-alumns/' + id}>Add note</IonButton>
+                                <IonButton 
+                                    expand='block' 
+                                    fill='outline' 
+                                    onClick={handlePost} 
+                                    href={'/detail-alumns/' + id}>Add note</IonButton>
                             </IonCol>
                         </IonRow>
                     </IonGrid>

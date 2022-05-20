@@ -139,6 +139,23 @@ function* sagaDeleteNotes ({payload}) {
     }
 }
 
+//
+
+function sagaApiDeleteUser (payload) {
+    return axios.delete(`http://localhost:3001/alumns/deleteAlumn/${payload}`)
+}
+
+function* sagaDeleteUser ({payload}) {
+    const response = yield call(sagaApiDeleteUser, payload);
+    if (response.status = 200) {
+        yield put({type: 'DELETE_USER_SUCCESS'});
+    } else {
+        yield put({type: 'DELETE_USER_ERROR', payload: response});
+    }
+}
+
+
+
 
 // ------ ROOT SAGA ------ 
 
@@ -151,4 +168,5 @@ export default function* rootSaga () {
     yield takeEvery('POST_ALUMN', sagaAddAlumn);
     yield takeEvery('GET_ALL_ALUMNS', sagaAllAlumns);
     yield takeEvery('GET_DETAIL_ALUMNS', sagaGetDetailAlumn);
+    yield takeEvery('DELETE_USER', sagaDeleteUser);
 }

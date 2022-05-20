@@ -175,6 +175,7 @@ export function updateNotesError (error) {
 
 
 export function deleteNotes (payload) {
+    console.log('ENTRE ACTIONS DELETE NOTES')
     return({
         type: 'DELETE_NOTES',
         payload
@@ -192,6 +193,32 @@ export function deleteNotesSuccess () {
 export function deleteNotesError (error) {
     return ({
         type: 'DELETE_NOTES_ERROR',
+        payload: error
+    })
+}
+
+
+// -------------------------------------------------
+
+export function deleteUser (payload) {
+    return({
+        type: 'DELETE_USER',
+        payload
+    })
+}
+
+
+// SAGA SUCCESS AND ERROR DELETE USER
+
+export function deleteUserSuccess () {
+    return {
+        type: 'DELETE_USER_SUCCESS'
+    }
+}
+
+export function deleteUserError (error) {
+    return ({
+        type: 'DELETE_USER_ERROR',
         payload: error
     })
 }

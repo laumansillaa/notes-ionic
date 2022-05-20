@@ -88,6 +88,15 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 error: action.payload
             }
+        case 'DELETE_USER_SUCCESS':
+            return {
+                ...state
+            }
+        case 'DELETE_USER_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
     }
