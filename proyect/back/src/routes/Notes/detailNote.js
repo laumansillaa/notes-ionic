@@ -1,4 +1,4 @@
-const {Notes} = require('../../db').models;
+const {Notes, Alumns} = require('../../db').models;
 
 module.exports = async function (req, res, next) {
     console.log('----- DETAIL NOTE -----');
