@@ -26,3 +26,34 @@ con sus respectivos valores.
 
 Asi tambien, en la carpeta `client`, debera ejecutarse tambien el comando `npm install`, a fin de instalar 
 las dependencias requeridas. 
+
+
+#Assets
+
+## All-alumns
+
+![All-alumns](https://user-images.githubusercontent.com/85461971/169623394-92cf4c0a-4827-4ee4-bd09-063f9672d382.jpg)
+
+## Create Alumn
+
+![Captura de pantalla 2022-05-20 182600](https://user-images.githubusercontent.com/85461971/169623462-18dfb173-7447-4ba8-8c61-e85f848ce2cd.jpg)
+
+## Create Note
+
+![addNote](https://user-images.githubusercontent.com/85461971/169623546-1e8232a0-c05f-47f0-9f30-c72100d4e5bb.jpg)
+
+## Detail Note
+
+![detail-Note](https://user-images.githubusercontent.com/85461971/169623570-68dcaa1c-d01d-452f-b0b8-375c9c55efc0.jpg)
+
+## Edit Note 
+
+![edit-nota](https://user-images.githubusercontent.com/85461971/169623593-c10a456e-89b6-4ec3-9867-73f41d56531e.jpg)
+
+
+## Detail Profile
+
+![detailPerfil](https://user-images.githubusercontent.com/85461971/169623609-7c76453b-4c41-4623-936a-ebedcb2a450d.jpg)
+
+
+
