@@ -30,12 +30,12 @@ export default function CompleteModal ({dismiss}) {
                         </IonText>
                     </IonCol>
                 </IonRow> */}
-                <IonRow>
+                <IonRow className='ion-text-center'>
                     <IonCol>
                         <IonButton 
                         color='danger'
                         fill='clear'
-                        className='modalOptions'
+                        
                         onClick= {dismiss}
                         >
                             Cancel
@@ -44,8 +44,7 @@ export default function CompleteModal ({dismiss}) {
                     <IonCol>
                         <IonButton 
                             color='primary'
-                            fill='clear'
-                            className='modalOptions'
+                            fill='clear'                         
                             onClick={handleDeleteNote}
                             href={'/detail-alumns' + idUser} >
                             Delete

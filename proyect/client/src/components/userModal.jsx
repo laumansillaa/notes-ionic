@@ -3,6 +3,7 @@ import {IonContent, IonGrid, IonRow, IonCol, IonText, IonButton} from '@ionic/re
 import {useDispatch} from 'react-redux';
 import {useParams} from 'react-router';
 import {deleteUser} from '../actions';
+import './userModal.css'
 
 export default function UserModal ({dismiss}) {
 
@@ -18,18 +19,19 @@ export default function UserModal ({dismiss}) {
 
         <IonContent>
             <IonGrid>
-                <IonRow>
+                <IonRow className='ion-text-center'>
                     <IonCol>
                         <IonText>
                             <h4>Delete to User?</h4>
                         </IonText>
                     </IonCol>
                 </IonRow>
-                <IonRow>
+                <IonRow className='ion-text-center' >
                     <IonCol>
                         <IonButton
                             color='danger'
                             fill='clear'
+                            // className='userModal'
                             onClick={dismiss}
                             >
                             Cancel
@@ -39,6 +41,7 @@ export default function UserModal ({dismiss}) {
                         <IonButton
                             color='primary'
                             fill='clear'
+                            className='ion-text-center'
                             onClick={handleDeleteUser}
                             href={'/all-alumns'}
                             >

@@ -49,7 +49,7 @@ export default function DetailNote () {
                 canDismiss={true} 
                 onDidDismiss={closeModal}
                 breakpoints={[0,0.1,0.2,1]}
-                initialBreakpoint={0.1}
+                initialBreakpoint={[0.1]}
                 backdropBreakpoint={0.2} 
                 >
                 <CompleteModal dismiss={closeModal}  />

@@ -97,6 +97,16 @@ function rootReducer (state = initialState, action) {
                 ...state,
                 error: action.payload
             }
+        case 'UPDATE_ALUMNS_SUCCESS':
+            return {
+                ...state,
+                update: action.payload
+            }
+        case 'UPDATE_ALUMNS_ERROR':
+            return {
+                ...state,
+                error: action.payload
+            }
         default:
             return state;
     }

@@ -5,23 +5,26 @@ import {getDetailAlumns} from '../../actions';
 import {IonContent, IonGrid, IonTitle, IonPage, IonHeader, IonToolbar,
         IonCol, IonCard, IonItem, IonButton, IonRow, IonCardContent, 
         IonIcon, IonFab, IonFabButton, IonCardHeader, IonCardTitle, IonFabList, IonModal} from '@ionic/react';
-import { arrowBackOutline, addCircleOutline, menuOutline, trashOutline, createOutline } from 'ionicons/icons';
+import { arrowBackOutline, addCircleOutline, menuOutline, trashOutline, createOutline, informationCircleOutline } from 'ionicons/icons';
 import './DetailAlumns.css'
 import UserModal from '../../components/userModal';
+import ProfileModal from '../../components/profileModal';
 
 
 export default function DetailAlumns () {
 
     const {id} = useParams()
     const dispatch = useDispatch()
-    // const history = useHistory()
     const detailAlumns = useSelector((state) => state.detail)
 
     const [open, setOpen] = useState(false)
+    const [openProfile, setOpenProfile] = useState(false)
 
-
+    window.localStorage.setItem('name', detailAlumns.name)
     window.localStorage.setItem("lastname", detailAlumns.lastname)
     window.localStorage.setItem('id', detailAlumns.id)
+    window.localStorage.setItem('phone', detailAlumns.phone)
+    window.localStorage.setItem('observations', detailAlumns.observations)
 
     useEffect(() => {
         dispatch(getDetailAlumns(id))
@@ -31,19 +34,32 @@ export default function DetailAlumns () {
         setOpen(false)
     }
 
+    const closeModalProfile = () => {
+        setOpenProfile(false)
+    }
+
 
     return (
         <React.Fragment>
             <IonModal 
                 isOpen={open}
-                canDismiss={true}
+                // canDismiss={true}
                 onDidDismiss={closeModal}
                 breakpoints={[0, 0.1, 0.2, 1]}
-                initialBreakpoint={0.2}
+                initialBreakpoint={[0.2]}
                 backdropBreakpoint={0.2}
                 >
-                <UserModal />
+                <UserModal dismiss={closeModal} />
 
+            </IonModal>
+            <IonModal
+                isOpen={openProfile}
+                onDidDismiss={closeModalProfile}
+                breakpoints={[0, 0.1, 0.2, 1]}
+                initialBreakpoint={0.5}
+                backdropBreakpoint={0.2}
+                >
+                <ProfileModal dismiss={closeModalProfile} />
             </IonModal>
 
             <IonPage>
@@ -56,9 +72,14 @@ export default function DetailAlumns () {
                             ><IonIcon icon={arrowBackOutline} /></IonButton>
                             {
                                 detailAlumns?
-                                <IonTitle >{detailAlumns.name}</IonTitle> :
+                                <IonTitle >{detailAlumns.name}</IonTitle>  :
                                 <IonTitle>Name not found</IonTitle>
                             }
+                        <IonButton
+                            slot='end'
+                            onClick={() => setOpenProfile(true)}>
+                            <IonIcon icon={informationCircleOutline}/>
+                        </IonButton>
                     </IonToolbar>
                 </IonHeader>
                 <IonContent>
@@ -110,7 +131,7 @@ export default function DetailAlumns () {
                                 onClick={() => setOpen(true)}
                                 />
                         </IonFabButton>
-                        <IonFabButton>
+                        <IonFabButton href={'/update-alumns/' + id}> 
                             <IonIcon icon={createOutline} />
                         </IonFabButton>
                     </IonFabList>

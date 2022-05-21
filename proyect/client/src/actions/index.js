@@ -222,3 +222,25 @@ export function deleteUserError (error) {
         payload: error
     })
 }
+
+// -------------------------------------------------
+
+export function updateAlumns (payload) {
+    return ({
+        type: 'UPDATE_ALUMNS',
+        payload
+    })
+}
+
+export function updateAlumnsSuccess () {
+    return {
+        type: 'UPDATE_ALUMNS_SUCCESS'
+    }
+}
+
+export function updateAlumnsError (error) {
+    return ({
+        type: 'UPDATE_ALUMNS_ERROR',
+        payload: error
+    })
+}

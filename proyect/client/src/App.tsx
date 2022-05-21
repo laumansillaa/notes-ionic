@@ -13,6 +13,7 @@ import updateNote from './pages/updateNote/updateNote';
 import PostAlumn from './pages/PostAlumns/PostAlumns';
 import AllAlumns from './pages/AllAlumns/AllAlumns';
 import DetailAlumns from './pages/DetailAlumns/DetailAlumns';
+import UpdateAlumns from './pages/updateAlumns/updateAlumns';
 
 
 
@@ -34,6 +35,7 @@ import '@ionic/react/css/display.css';
 
 /* Theme variables */
 import './theme/variables.css';
+
 
 setupIonicReact();
 
@@ -87,6 +89,7 @@ const App: React.FC = () => (
         <Route exact path="/all-alumns" component={AllAlumns}/>
         <Route exact path="/post-alumns" component={PostAlumn}/>
         <Route exact path="/detail-alumns/:id" component={DetailAlumns}/>
+        <Route exact path= "/update-alumns/:id" component={UpdateAlumns} />
         <Route exact path="/post-note" component={PostNote} />
         <Route path="/detail-note/:id" component={DetailNote} />
         <Route path="/update-note/:id" component={updateNote} />
