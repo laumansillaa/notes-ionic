@@ -77,7 +77,7 @@ export default function DetailNote () {
                             fill='outline' 
                             color='white'
                             href={'/update-note/' + id} >
-                            <IonIcon icon={createOutline} color='medium' />
+                            <IonIcon icon={createOutline} />
                         </IonButton>
                     </IonToolbar>
                 </IonHeader>

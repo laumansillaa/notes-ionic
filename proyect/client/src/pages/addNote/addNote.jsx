@@ -45,7 +45,7 @@ export default function PostNote () {
                             <IonMenuButton />
                         </IonButtons>
                         <IonTitle className='title'>
-                            Add new note
+                            New note
                         </IonTitle>
                     </IonToolbar>
                 </IonHeader>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {IonContent, IonGrid, IonHeader, IonItem, IonTextarea, IonToolbar, IonCardContent, IonRow , IonIcon, IonCol, IonTitle, IonSubtitle, IonText, IonButton, IonButtons, IonCard} from '@ionic/react';
+import {IonContent, IonGrid, IonHeader, IonItem, IonLabel, IonTextarea, IonToolbar, IonCardContent, IonRow , IonIcon, IonCol, IonTitle, IonSubtitle, IonText, IonButton, IonButtons, IonCard} from '@ionic/react';
 import {useParams} from 'react-router';
 import { informationCircleOutline } from 'ionicons/icons';
 
@@ -52,11 +52,12 @@ export default function ProfileModal ({dismiss}) {
                 <IonRow>
                     <IonCol>
                         <IonItem>
-                            <IonText>
-                                <IonTitle className='ion-no-padding'>
-                                    Phone: {phone}
-                                </IonTitle>
-                            </IonText>
+                            <IonTitle className='ion-no-padding'>
+                                Phone: {phone}
+                                {/* <IonText className='ion-no-padding'>
+                                    {phone}
+                                </IonText> */}
+                            </IonTitle>
                         </IonItem>
                     </IonCol>
                 </IonRow>

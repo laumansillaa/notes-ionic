@@ -56,7 +56,7 @@ export default function DetailAlumns () {
                 isOpen={openProfile}
                 onDidDismiss={closeModalProfile}
                 breakpoints={[0, 0.1, 0.2, 1]}
-                initialBreakpoint={0.5}
+                initialBreakpoint={1.0}
                 backdropBreakpoint={0.2}
                 >
                 <ProfileModal dismiss={closeModalProfile} />

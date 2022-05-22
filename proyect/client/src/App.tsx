@@ -2,7 +2,7 @@ import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonMenu, IonRouterOutlet, setupIonicReact, IonHeader, IonToolbar, IonTitle, IonContent, IonList, 
         IonItem, IonIcon, IonLabel, IonMenuToggle, IonAccordion, IonAccordionGroup  } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import {bookOutline, addCircleOutline} from 'ionicons/icons';
+import {bookOutline, addCircleOutline, barbellOutline} from 'ionicons/icons';
 
 
 import Home from './pages/Home';
@@ -45,7 +45,7 @@ const App: React.FC = () => (
       <IonMenu side="start" contentId="menuApp">
         <IonHeader>
           <IonToolbar color= "primary">
-            <IonTitle>NotesApp</IonTitle>
+            <IonTitle>Gym-Nacho<IonIcon icon={barbellOutline}/></IonTitle>
           </IonToolbar>
         </IonHeader>
         <IonContent>
@@ -61,26 +61,6 @@ const App: React.FC = () => (
                 <IonIcon icon={addCircleOutline} color="medium" slot="start" />
                 <IonLabel>Add alumn</IonLabel>
               </IonItem>
-            </IonMenuToggle>
-            <IonMenuToggle>
-              <IonAccordionGroup>
-                    <IonAccordion>
-                        <IonItem><IonLabel>Alumnos</IonLabel></IonItem>
-                        <IonList>
-                          <IonItem>
-                            <IonLabel>Alumno1</IonLabel>
-                          </IonItem>
-                          <IonItem>
-                            <IonLabel>Alumno2</IonLabel>
-                          </IonItem>
-                          <IonItem>
-                            <IonLabel>Alumno2</IonLabel>
-                          </IonItem>
-                        </IonList>
-                    </IonAccordion>
-
-                </IonAccordionGroup>
-
             </IonMenuToggle>
           </IonList>
         </IonContent>

@@ -48,7 +48,7 @@ export default function PostAlumn () {
                             <IonMenuButton />
                         </IonButtons>
                         <IonTitle className='title'>
-                            Add new alumn
+                            New alumn
                         </IonTitle>
                     </IonToolbar>
                 </IonHeader>

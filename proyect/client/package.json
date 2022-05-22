@@ -47,7 +47,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "webpack --mode=development",
     "test": "cross-env NODE_ENV=test jasmine",
     "eject": "react-scripts eject"
   },
@@ -70,16 +70,27 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.17.10",
+    "@babel/core": "^7.18.0",
+    "@babel/preset-react": "^7.17.12",
     "@babel/register": "^7.17.7",
     "@capacitor/cli": "3.5.0",
+    "babel-loader": "^8.2.5",
     "cross-env": "^7.0.3",
+    "css-loader": "^6.7.1",
     "jasmine": "^4.1.0",
-    "jsdom": "^19.0.0"
+    "jsdom": "^19.0.0",
+    "source-map-loader": "^3.0.1",
+    "ts-loader": "^9.3.0",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
   },
   "babel": {
     "presets": [
-      "react-app"
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime",
+      "@babel/plugin-proposal-class-properties"
     ]
   },
   "jest": {
